@@ -11,12 +11,13 @@ class ShoppingCart:
 class ShoppingCartTest(TestCase):
     @setup
     def prepare_cart(self):
+        self.cart=ShoppingCart()
         self.cart.add_item("Laptop")
 
     @teardown
-    def prepare_cart(self):
+    def cleanup_cart(self):
         self.cart.clear()
-    def test_initial_item_count():
+    def test_initial_item_count(self):
         assert_equal(len(self.cart.items), 1)
     
     def test_adding_second_item(self):
