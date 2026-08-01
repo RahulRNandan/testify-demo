@@ -1,6 +1,8 @@
-from testify import TestCase, setup, teardown, assert_equal
+from testify import TestCase, setup, teardown, assert_equal, suite
 
 class FileProcessorTest(TestCase):
+    def suites(self, test_method=None): 
+        return {'fast', 'unit'}
     @setup
     def create_file(self):
         self.file=open("temp_test.txt", "w")
